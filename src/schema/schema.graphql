@@ -2,12 +2,14 @@
 type Query {
   users: [User!]!
   hello: String!
+  tasks: [Task!]!
 }
 
 # Mutations
 type Mutation {
   createuser(data: CreateUserInput): User!
   loginuser(data: LoginInput): AuthPayload!
+  createtask(data: CreateTaskInput): Task!
 }
 
 # Subscriptions
@@ -29,6 +31,12 @@ input LoginInput {
   email: String!
   password: String!
 }
+input CreateTaskInput{
+ task: String!
+ summary: String!
+ priority: String!
+ state: String!
+}
 
 ############################################################
 
@@ -48,4 +56,13 @@ type AuthPayload {
 
 type Counter {
   count: Int!
+}
+
+# Task 
+type Task {
+ id:ID!
+ task: String!
+ summary: String!
+ priority: String!
+ state: String!
 }
