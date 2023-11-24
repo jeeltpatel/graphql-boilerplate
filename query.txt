@@ -1,0 +1,60 @@
+query {
+  users {
+    id
+    name
+    email
+    password
+    age
+  }
+}
+
+
+## Simple Hello
+
+query {
+  hello
+}
+
+## Create a New users
+
+mutation {
+  createuser(data: {
+    name: "NewUser",
+    email: "newuser@example.com",
+    password: "password123",
+    age: 25
+  }) {
+    id
+    name
+    email
+    password
+    age
+  }
+}
+
+## Login as User 
+
+mutation {
+  loginuser(data: {
+    email: "user@example.com",
+    password: "password123"
+  }) {
+    user {
+      id
+      name
+      email
+      password
+      age
+    }
+    token
+  }
+}
+
+
+## Subscribe to counter
+
+subscription {
+  counter {
+    count
+  }
+}
